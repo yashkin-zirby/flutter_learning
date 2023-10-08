@@ -12,6 +12,9 @@ class Battery extends StatefulWidget {
 class _BatteryState extends State<Battery> {
   static const platform = const MethodChannel('samples.flutter.io/battery');
   String _batteryLevel = 'Unknown battery level.';
+  _BatteryState() {
+    _getBatteryLevel();
+  }
   Future<void> _getBatteryLevel() async {
     String batteryLevel;
     try {
@@ -22,10 +25,6 @@ class _BatteryState extends State<Battery> {
     }
     setState(() {
       _batteryLevel = batteryLevel;
-      Timer.periodic(Duration(seconds: 10), (timer) {
-        _getBatteryLevel();
-        timer.cancel();
-      });
     });
   }
 
