@@ -1,6 +1,8 @@
 import UIKit
 import Flutter
 
+import simple_auth_flutter
+
 @UIApplicationMain
 @objc class AppDelegate: FlutterAppDelegate {
   override func application(
